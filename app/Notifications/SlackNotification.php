@@ -44,7 +44,8 @@ class SlackNotification extends Notification
     public function toSlack($notifiable) //追記
     {
         return (new SlackMessage)
-            ->content("テスト送信　別所");
+            ->content($this->message);
+
     }
     /**
      * Get the array representation of the notification.

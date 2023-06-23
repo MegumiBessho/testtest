@@ -8,6 +8,7 @@ use App\Notifications\SlackNotification;    //追記
 use Illuminate\Notifications\Messages\SlackMessage;    //追記
 use App\Http\Controllers\SlackController;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 
 class SlackController extends Controller
@@ -19,9 +20,12 @@ class SlackController extends Controller
         return view('slack');
     }
 
-    public function send()
+    public function send(Request $request)
     {
-        $slack = $this->notify(new SlackNotification());
+        $name = $request->input('name');
+        $message = $request->input('message');
+
+        $slack = $this->notify(new SlackNotification($message));
 
         session()->flash('success', '送信しました！');
         return back();

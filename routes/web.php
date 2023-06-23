@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SlackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/calendar', function () {
     return view('calendar');
 });
+Route::get('/slack', [SlackController::class,'index']);
+Route::post('/slack', [SlackController::class,'send']);

@@ -25,7 +25,7 @@ class SlackController extends Controller
         $name = $request->input('name');
         $message = $request->input('message');
 
-        $slack = $this->notify(new SlackNotification($message));
+        $slack = $this->notify(new SlackNotification($message, $name));
 
         session()->flash('success', '送信しました！');
         return back();

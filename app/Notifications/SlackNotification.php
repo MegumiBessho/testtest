@@ -13,15 +13,17 @@ class SlackNotification extends Notification
 
     protected $channel;  //追記
     protected $message; //追記
+    protected $name; //追記
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($message = null)
+    public function __construct($message = null, $name = null)
     {
         $this->channel = env('SLACK_CHANNEL'); //追記
         $this->message = $message; //追記
+        $this->name = $name;
     }
 
     /**
@@ -44,7 +46,8 @@ class SlackNotification extends Notification
     public function toSlack($notifiable) //追記
     {
         return (new SlackMessage)
-            ->content($this->message);
+            ->content($this->message)
+            ->from($this->name);
 
     }
     /**

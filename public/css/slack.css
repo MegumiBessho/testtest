@@ -1,0 +1,17 @@
+p {
+    margin-bottom: 0;
+}
+input {
+    margin-bottom: 20px;
+}
+.form-group {
+    width: 50%;
+    margin: 0 auto;
+}
+.form-group .message {
+    height: 3em;
+    line-height: 100%;
+}
+.form-group p:last-child {
+    text-align: right;
+}

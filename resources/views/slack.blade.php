@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Slack Notification</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/slack.css') }}">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <input type="text" name="name" value="{{ old('name') }}" class="form-control">
 
         <p>メッセージ</p>
-        <input type="text" name="message" value="{{ old('message') }}" class="form-control">
+        <input type="textarea" name="message" value="{{ old('message') }}" class="form-control message">
 
         <p><input type="submit" value="送信" class="btn"></p>
     </div>
